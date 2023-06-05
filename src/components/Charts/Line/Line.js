@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Chart } from "chart.js";
+import { Chart, LineController } from "chart.js";
 
 import CardBasic from '../../Cards/Basic';
 
@@ -13,6 +13,7 @@ class ChartLine extends Component {
     componentDidMount() {
 
         const myChartRef = this.chartRef.current.getContext("2d");
+        Chart.register(LineController);
         console.log(this.chartRef);
 
         new Chart(myChartRef, {
