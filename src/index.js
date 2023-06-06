@@ -8,7 +8,8 @@ import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 //SBAdmin2 Style
-import './styles/scss/sb-admin-2.scss';
+//import './styles/scss/sb-admin-2.scss';
+import './assets/css/sb-admin-2.css';
 
 //Redux
 import { Provider } from 'react-redux';

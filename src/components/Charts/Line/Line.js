@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Chart, LineController } from "chart.js";
+import { CategoryScale, Chart, LineController, LineElement, LinearScale, PointElement } from "chart.js";
 
 import CardBasic from '../../Cards/Basic';
 
@@ -14,7 +14,10 @@ class ChartLine extends Component {
 
         const myChartRef = this.chartRef.current.getContext("2d");
         Chart.register(LineController);
-        console.log(this.chartRef);
+        Chart.register(CategoryScale);
+        Chart.register(LinearScale);
+        Chart.register(PointElement);
+        Chart.register(LineElement);
 
         new Chart(myChartRef, {
             type: 'line',
@@ -47,32 +50,32 @@ class ChartLine extends Component {
                     }
                 },
                 scales: {
-                    xAxes: [{
-                        time: {
-                            unit: 'date'
-                        },
-                        gridLines: {
-                            display: false,
-                            drawBorder: false
-                        },
-                        ticks: {
-                            maxTicksLimit: 7
-                        }
-                    }],
-                    yAxes: [{
-                        ticks: {
-                            maxTicksLimit: 5,
-                            padding: 10,
-                            // Include a dollar sign in the ticks
-                        },
-                        gridLines: {
-                            color: "rgb(234, 236, 244)",
-                            zeroLineColor: "rgb(234, 236, 244)",
-                            drawBorder: false,
-                            borderDash: [2],
-                            zeroLineBorderDash: [2]
-                        }
-                    }],
+                    // xAxes: [{
+                    //     time: {
+                    //         unit: 'date'
+                    //     },
+                    //     gridLines: {
+                    //         display: false,
+                    //         drawBorder: false
+                    //     },
+                    //     ticks: {
+                    //         maxTicksLimit: 7
+                    //     }
+                    // }],
+                    // yAxes: [{
+                    //     ticks: {
+                    //         maxTicksLimit: 5,
+                    //         padding: 10,
+                    //         // Include a dollar sign in the ticks
+                    //     },
+                    //     gridLines: {
+                    //         color: "rgb(234, 236, 244)",
+                    //         zeroLineColor: "rgb(234, 236, 244)",
+                    //         drawBorder: false,
+                    //         borderDash: [2],
+                    //         zeroLineBorderDash: [2]
+                    //     }
+                    // }],
                 },
                 legend: {
                     display: false

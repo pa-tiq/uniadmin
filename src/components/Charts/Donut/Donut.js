@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Chart, DoughnutController} from "chart.js";
+import { ArcElement, Chart, DoughnutController} from "chart.js";
 
 import CardBasic from '../../Cards/Basic';
 
@@ -9,8 +9,8 @@ class ChartDonut extends Component {
     componentDidMount() {
 
         const myPieChart = this.chartRef.current.getContext("2d");
-        console.log(this.chartRef);
         Chart.register(DoughnutController);
+        Chart.register(ArcElement);
 
         new Chart(myPieChart, {
             type: 'doughnut',

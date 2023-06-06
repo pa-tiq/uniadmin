@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { clickMenuOpen } from '../../../redux/actions';
+import PopupNavItem from './PopupNavItem';
 
 class Topbar extends Component {
     render() {
@@ -51,6 +51,8 @@ class Topbar extends Component {
                   </form>
                 </div>
               </li>
+
+              <PopupNavItem/>
 
               {/* <!-- Nav Item - Alerts --> */}
               <li className="nav-item dropdown no-arrow mx-1">
