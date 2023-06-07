@@ -8,7 +8,6 @@ export const slice = createSlice({
   reducers: {
     toggleMenu(state, { payload }) {
       return {
-        ...state,
         menuOpen: !state.menuOpen,
       };
     },
@@ -17,6 +16,6 @@ export const slice = createSlice({
 
 export const { toggleMenu } = slice.actions;
 
-export const selectMenuState = state => { state.menuOpen };
+export const selectMenuState = state => state.menu.menuOpen;
 
 export default slice.reducer;

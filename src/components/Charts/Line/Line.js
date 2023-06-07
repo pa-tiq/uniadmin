@@ -19,6 +19,8 @@ class ChartLine extends Component {
         Chart.register(PointElement);
         Chart.register(LineElement);
 
+
+
         new Chart(myChartRef, {
             type: 'line',
             data: {
@@ -50,32 +52,32 @@ class ChartLine extends Component {
                     }
                 },
                 scales: {
-                    // xAxes: [{
-                    //     time: {
-                    //         unit: 'date'
-                    //     },
-                    //     gridLines: {
-                    //         display: false,
-                    //         drawBorder: false
-                    //     },
-                    //     ticks: {
-                    //         maxTicksLimit: 7
-                    //     }
-                    // }],
-                    // yAxes: [{
-                    //     ticks: {
-                    //         maxTicksLimit: 5,
-                    //         padding: 10,
-                    //         // Include a dollar sign in the ticks
-                    //     },
-                    //     gridLines: {
-                    //         color: "rgb(234, 236, 244)",
-                    //         zeroLineColor: "rgb(234, 236, 244)",
-                    //         drawBorder: false,
-                    //         borderDash: [2],
-                    //         zeroLineBorderDash: [2]
-                    //     }
-                    // }],
+                     xAxes: {
+                         time: {
+                             unit: 'date'
+                         },
+                         gridLines: {
+                             display: false,
+                             drawBorder: false
+                         },
+                         ticks: {
+                             maxTicksLimit: 7
+                         }
+                     },
+                     yAxes: {
+                         ticks: {
+                             maxTicksLimit: 5,
+                             padding: 10,
+                             // Include a dollar sign in the ticks
+                         },
+                         gridLines: {
+                             color: "rgb(234, 236, 244)",
+                             zeroLineColor: "rgb(234, 236, 244)",
+                             drawBorder: false,
+                             borderDash: [2],
+                             zeroLineBorderDash: [2]
+                         }
+                     },
                 },
                 legend: {
                     display: false

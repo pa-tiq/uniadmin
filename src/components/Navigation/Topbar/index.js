@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useDispatch } from 'react-redux';
 import PopupNav from './PopupNav';
 import PopupNavItem from './PopupNavItem'

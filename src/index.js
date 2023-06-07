@@ -14,11 +14,16 @@ import './assets/css/sb-admin-2.css';
 //Redux
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import SubjectContextProvider from './context/subject-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+  
+    <SubjectContextProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </SubjectContextProvider>
+  
 );

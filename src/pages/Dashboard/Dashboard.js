@@ -8,6 +8,7 @@ import CardInfo from '../../components/Cards/Info';
 import ChartDonut from '../../components/Charts/Donut/Donut';
 import ChartLine from '../../components/Charts/Line/Line';
 import PageHeading from '../../components/PageHeading';
+import NetworkVis from '../../components/Graphs/NetworkVis';
 
 class Dashboard extends Component {
 
@@ -71,7 +72,7 @@ class Dashboard extends Component {
                 </div>
                 <div className='row'>
                   <div className='col-xl-12 col-lg-12'>
-                    <ChartLine />
+                    <NetworkVis />
                   </div>
                 </div>
                 <div className='row'>

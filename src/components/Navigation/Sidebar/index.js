@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
 import CollapseNavLink from './CollapseNavLink';
-import { toggleMenu } from '../../../redux/menuOpenSlice';
+import { selectMenuState, toggleMenu } from '../../../redux/menuOpenSlice';
 
 
 const Sidebar = () => {
 
   const [cookie, setCookie] = useCookies(['menuWide']);
   const { menuWide } = cookie;
-  const { menuOpen:toggled } = useSelector(state => state.menu);
+  //const { menuOpen:toggled } = useSelector(state => state.menu);
+  const toggled = useSelector(selectMenuState);
 
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const Sidebar = () => {
   },[toggled]);
 
   useLayoutEffect(() => {
-    if(`${toggled}` !== menuWide){
+    if(toggled !== undefined && `${toggled}` !== menuWide){
       dispatch(toggleMenu());
     }
   }, [menuWide]);
@@ -44,7 +45,8 @@ const Sidebar = () => {
           <i className='fas fa-laugh-wink'></i>
         </div>
         <div className='sidebar-brand-text mx-3'>
-          SB Admin <sup>2</sup>
+          UniMGMT 
+          {/* <sup>2</sup> */}
         </div>
       </a>
 
@@ -131,14 +133,5 @@ const Sidebar = () => {
     </ul>
   );
 }
-
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators({ clickMenuOpen }, dispatch);
-
-// const mapStateToProps = store => ({
-//   toggled: store.menuState.menuOpen
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
 
 export default Sidebar;
