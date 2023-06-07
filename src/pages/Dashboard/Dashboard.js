@@ -37,8 +37,8 @@ const Dashboard = () => {
               <PageHeading title='Dashboard' />
 
               <div className='row'>
-                <div className='col-lg-3'>
-                  <Dropdown title={'Teste'}>
+                <div className='col-xl-3 col-md-3 mb-3'>
+                  <Dropdown title={'Unidade'}>
                     <a className='dropdown-item' href='#'>
                       Action
                     </a>
@@ -49,7 +49,35 @@ const Dashboard = () => {
                       Something else here
                     </a>
                   </Dropdown>
-                  <NetworkVisLevelFilter/>
+                </div>
+                <div className='col-xl-3 col-md-3 mb-3'>
+                  <Dropdown title={'Curso'}>
+                    <a className='dropdown-item' href='#'>
+                      Action
+                    </a>
+                    <a className='dropdown-item' href='#'>
+                      Another action
+                    </a>
+                    <a className='dropdown-item' href='#'>
+                      Something else here
+                    </a>
+                  </Dropdown>
+                </div>
+                <div className='col-xl-3 col-md-3 mb-3'>
+                  <NetworkVisLevelFilter />
+                </div>
+                <div className='col-xl-3 col-md-3 mb-3'>
+                  <Dropdown title={'Pesquisar'}>
+                    <a className='dropdown-item' href='#'>
+                      Action
+                    </a>
+                    <a className='dropdown-item' href='#'>
+                      Another action
+                    </a>
+                    <a className='dropdown-item' href='#'>
+                      Something else here
+                    </a>
+                  </Dropdown>
                 </div>
               </div>
 
@@ -59,11 +87,11 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className='row'>
-                <div className='col-xl-8 col-lg-6'>
-                  <ChartLine />
-                </div>
                 <div className='col-xl-4 col-lg-6'>
                   <ChartDonut />
+                </div>
+                <div className='col-xl-8 col-lg-6'>
+                  <ChartLine />
                 </div>
               </div>
 

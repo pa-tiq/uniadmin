@@ -13,11 +13,12 @@ import Node from './ModelsVis/Node';
 import { SubjectContext } from '../../context/subject-context';
 //import DetailsModal from '../Modals/DetailsModal';
 import CardBasic from '../Cards/Basic';
+import { useDispatch } from 'react-redux';
+import { setSelectedNode } from '../../redux/selectedNodeSlice';
 
 //https://www.npmjs.com/package/vis-network
 //https://visjs.github.io/vis-network/examples/
 //https://visjs.github.io/vis-network/docs/network/
-
 
 let data1 = require('../../constants/materias_prerequisitos_corequisitos.json');
 
@@ -105,15 +106,32 @@ const get_nodes_links_annotations = (data) => {
 
 const NetworkVis = () => {
   const networkRef = useRef(null);
+  const dispatch = useDispatch();
 
   const ctx = useContext(SubjectContext);
   const { nodes, edges, isLoading } = ctx;
 
-  const [selectedNode, setSelectedNode] = useState(null);
+  //const [selectedNode, setSelectedNode] = useState(null);
 
   const showDetailsHandler = (nodeId) => {
     const selected = nodes[nodes.findIndex((node) => node.id === nodeId)];
-    setSelectedNode(selected);
+    if (!selected) {
+      dispatch(setSelectedNode(null));
+    } else {
+      dispatch(
+        setSelectedNode({
+          id: selected.id,
+          title: selected.title,
+          label: selected.label,
+          level: selected.level,
+          color: selected.color,
+          prerequisites: selected.prerequisites,
+          corequisites: selected.corequisites,
+        })
+      );
+    }
+
+    //setSelectedNode(selected);
     //onNodeSelect(selected);
   };
 
@@ -214,15 +232,12 @@ const NetworkVis = () => {
   }, [nodes, edges, isLoading]);
 
   if (isLoading) {
-    return <CardBasic title="Fluxo"></CardBasic>
+    return <CardBasic title='Fluxo'></CardBasic>;
   }
 
   return (
     <CardBasic title='Fluxo'>
-      <div
-        ref={networkRef}
-        style={{height: '600px'}}
-      ></div>
+      <div ref={networkRef} style={{ height: '400px' }}></div>
       {/* <DetailsModal hide={!selectedNode} selectedNode={selectedNode} /> */}
     </CardBasic>
   );

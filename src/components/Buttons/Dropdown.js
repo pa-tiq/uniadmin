@@ -23,7 +23,7 @@ const Dropdown = ({ title, children }) => {
     }, [isComponentVisible]);
 
   return (
-    <div className='dropdown mb-4' ref={ref}>
+    <div className='card dropdown' ref={ref}>
       <button
         onClick={handleClick}
         className='btn btn-secondary dropdown-toggle'

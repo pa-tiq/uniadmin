@@ -21,6 +21,7 @@ const title_to_label = (title) => {
 };
 
 export default class Node {
+
   constructor(id, title, level) {
     this.id = id;
     this.title = title;

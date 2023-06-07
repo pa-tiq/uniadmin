@@ -17,14 +17,11 @@ const NetworkVisLevelFilter = () => {
     let level = 0;
     try {
       level = parseInt(e.target.id.slice(-1));
-      console.log('id:', e.target.id);
-      console.log('parseInt:', level);
     } catch (error) {
-      console.log('could not parse!');
       return;
     }
-
-    if (level === NaN) return;
+    if (Number.isNaN(level)) return;
+    console.log(level);
     let checked = checkedLevels;
     if (levelFilters.includes(level)) {
       ctx.removeLevelFilter(level);
@@ -69,6 +66,14 @@ const NetworkVisLevelFilter = () => {
             </div>
           );
         })}
+      <div className='dropdown-item' onClick={handleFilterCheck}>
+        <button
+          onClick={handleFilterCheckClean}
+          className='btn btn-secondary btn-icon-split'
+        >
+          <span className='text'>Limpar</span>
+        </button>
+      </div>
     </Dropdown>
   );
 };
