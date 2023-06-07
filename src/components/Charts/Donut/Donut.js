@@ -56,15 +56,15 @@ const ChartDonut = () => {
 
   useEffect(() => {
     if (pieChart && selectedNode) {
-      console.log(selectedNode);
-      const labels = ['Aprovados', 'Reprovados', 'Cancelados'];
       let data = [];
-      AprovadosReprovadosCancelados.resultset[0].forEach((item)=>{
+      AprovadosReprovadosCancelados.resultset.forEach((item)=>{
         if(item[0] === selectedNode.title){
-          data = [item[1], item[2], item[3]];
+          data.push(item[1]);
+          data.push(item[2]);
+          data.push(item[3]);
         }
       });
-      pieChart.data.labels = labels;
+      pieChart.data.labels = ['Aprovados', 'Reprovados', 'Cancelados'];
       pieChart.data.datasets = [
         {
           data: data,
@@ -92,8 +92,7 @@ const ChartDonut = () => {
         <canvas id='myPieChart' ref={chartRef}></canvas>
       </div>
       <hr />
-      Styling for the donut chart can be found in the{' '}
-      <code>/Components/Charts/Donut/index.js</code> file.
+      {selectedNode && selectedNode.title}
     </CardBasic>
   );
 };
