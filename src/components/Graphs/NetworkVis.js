@@ -221,7 +221,7 @@ const NetworkVis = () => {
     <CardBasic title='Fluxo'>
       <div
         ref={networkRef}
-        style={{height: '1000px'}}
+        style={{height: '600px'}}
       ></div>
       {/* <DetailsModal hide={!selectedNode} selectedNode={selectedNode} /> */}
     </CardBasic>

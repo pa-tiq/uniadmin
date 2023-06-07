@@ -41,11 +41,12 @@ const Sidebar = () => {
         className='sidebar-brand d-flex align-items-center justify-content-center'
         href='index.html'
       >
-        <div className='sidebar-brand-icon rotate-n-15'>
-          <i className='fas fa-laugh-wink'></i>
+        {/* <div className='sidebar-brand-icon rotate-n-15'> */}
+        <div className='sidebar-brand-icon'>
+          <i className='fas fa-university'></i>
         </div>
         <div className='sidebar-brand-text mx-3'>
-          UniMGMT 
+          UniMGMT
           {/* <sup>2</sup> */}
         </div>
       </a>
