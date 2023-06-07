@@ -9,10 +9,11 @@ import ChartDonut from '../../components/Charts/Donut/Donut';
 import ChartLine from '../../components/Charts/Line/Line';
 import PageHeading from '../../components/PageHeading';
 import NetworkVis from '../../components/Graphs/NetworkVis';
+import CardCollapse from '../../components/Cards/Collapse';
+import Dropdown from '../../components/Buttons/Dropdown';
 
 class Dashboard extends Component {
-
-  constructor(props){
+  constructor(props) {
     super();
     document.getElementById('body').className = 'page-top';
   }
@@ -39,6 +40,36 @@ class Dashboard extends Component {
                 {/* <!-- Page Heading --> */}
 
                 <PageHeading title='Dashboard' />
+
+                <div className='row'>
+                  <div class='col-lg-3'>
+                    <Dropdown title={'Teste'}>
+                      <a class='dropdown-item' href='#'>
+                        Action
+                      </a>
+                      <a class='dropdown-item' href='#'>
+                        Another action
+                      </a>
+                      <a class='dropdown-item' href='#'>
+                        Something else here
+                      </a>
+                    </Dropdown>
+                  </div>
+                </div>
+
+                <div className='row'>
+                  <div className='col-xl-12 col-lg-12'>
+                    <NetworkVis />
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='col-xl-8 col-lg-6'>
+                    <ChartLine />
+                  </div>
+                  <div className='col-xl-4 col-lg-6'>
+                    <ChartDonut />
+                  </div>
+                </div>
 
                 {/* <!-- Content Row --> */}
                 <div className='row'>
@@ -71,16 +102,37 @@ class Dashboard extends Component {
                   />
                 </div>
                 <div className='row'>
-                  <div className='col-xl-12 col-lg-12'>
-                    <NetworkVis />
+                  <div class='col-lg-3'>
+                    <CardCollapse title='Unidade'>
+                      This is a collapsable card example using Bootstrap's built
+                      in collapse functionality.{' '}
+                      <strong>Click on the card header</strong> to see the card
+                      body collapse and expand!
+                    </CardCollapse>
                   </div>
-                </div>
-                <div className='row'>
-                  <div className='col-xl-8 col-lg-6'>
-                    <ChartLine />
+                  <div class='col-lg-3'>
+                    <CardCollapse title='Curso'>
+                      This is a collapsable card example using Bootstrap's built
+                      in collapse functionality.{' '}
+                      <strong>Click on the card header</strong> to see the card
+                      body collapse and expand!
+                    </CardCollapse>
                   </div>
-                  <div className='col-xl-4 col-lg-6'>
-                    <ChartDonut />
+                  <div class='col-lg-3'>
+                    <CardCollapse title='Período'>
+                      This is a collapsable card example using Bootstrap's built
+                      in collapse functionality.{' '}
+                      <strong>Click on the card header</strong> to see the card
+                      body collapse and expand!
+                    </CardCollapse>
+                  </div>
+                  <div class='col-lg-3'>
+                    <CardCollapse title='Pesquisar'>
+                      This is a collapsable card example using Bootstrap's built
+                      in collapse functionality.{' '}
+                      <strong>Click on the card header</strong> to see the card
+                      body collapse and expand!
+                    </CardCollapse>
                   </div>
                 </div>
               </div>
