@@ -1,17 +1,19 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
-import { clickMenuOpen } from '../../../redux/actions';
 import CollapseNavLink from './CollapseNavLink';
+import { toggleMenu } from '../../../redux/menuOpenSlice';
 
 
-const Sidebar = ({clickMenuOpen, toggled}) => {
+const Sidebar = () => {
 
   const [cookie, setCookie] = useCookies(['menuWide']);
   const { menuWide } = cookie;
+  const { menuOpen:toggled } = useSelector(state => state.menu);
+
+  const dispatch = useDispatch();
 
   useEffect(()=>{
     setCookie('menuWide', toggled, { path: '/' , sameSite:'lax'});
@@ -19,7 +21,7 @@ const Sidebar = ({clickMenuOpen, toggled}) => {
 
   useLayoutEffect(() => {
     if(`${toggled}` !== menuWide){
-      clickMenuOpen();
+      dispatch(toggleMenu());
     }
   }, [menuWide]);
 
@@ -120,7 +122,7 @@ const Sidebar = ({clickMenuOpen, toggled}) => {
       <div className='text-center d-none d-md-inline'>
         <button
           onClick={() => {
-            clickMenuOpen();
+            dispatch(toggleMenu());
           }}
           className='rounded-circle border-0'
           id='sidebarToggle'
@@ -130,11 +132,13 @@ const Sidebar = ({clickMenuOpen, toggled}) => {
   );
 }
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ clickMenuOpen }, dispatch);
+// const mapDispatchToProps = dispatch =>
+//   bindActionCreators({ clickMenuOpen }, dispatch);
 
-const mapStateToProps = store => ({
-  toggled: store.menuState.menuOpen
-});
+// const mapStateToProps = store => ({
+//   toggled: store.menuState.menuOpen
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+// export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+
+export default Sidebar;

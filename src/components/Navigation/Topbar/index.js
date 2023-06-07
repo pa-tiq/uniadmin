@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { clickMenuOpen } from '../../../redux/actions';
+import { useDispatch } from 'react-redux';
 import PopupNav from './PopupNav';
 import PopupNavItem from './PopupNavItem'
 import PopupNavMessage from './PopupNavMessage'
 import UserInformation from './UserInformation';
+import { toggleMenu } from '../../../redux/menuOpenSlice';
 
-const Topbar = ({ clickMenuOpen }) => {
+const Topbar = () => {
+
+  const dispatch = useDispatch();
 
   return (
     <nav className='navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow'>
       {/* <!-- Sidebar Toggle (Topbar) --> */}
       <button
         onClick={() => {
-          clickMenuOpen();
+          dispatch(toggleMenu());
         }}
         id='sidebarToggleTop'
         className='btn btn-link d-md-none rounded-circle mr-3'
@@ -136,11 +137,4 @@ const Topbar = ({ clickMenuOpen }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ clickMenuOpen }, dispatch);
-
-const mapStateToProps = (store) => ({
-  toggled: store.menuState.menuOpen,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Topbar);
+export default Topbar;
