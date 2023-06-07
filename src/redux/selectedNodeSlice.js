@@ -3,11 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const slice = createSlice({
   name: 'selectedNode',
   initialState: {
-    selectedNode: {},
+    selectedNode: null,
   },
   reducers: {
     setSelectedNode(state, { payload }) {
-        console.log(payload);
       return {
         selectedNode: payload,
       };
