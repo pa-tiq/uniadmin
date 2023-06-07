@@ -23,10 +23,10 @@ const Dropdown = ({ title, children }) => {
     }, [isComponentVisible]);
 
   return (
-    <div class='dropdown mb-4' ref={ref}>
+    <div className='dropdown mb-4' ref={ref}>
       <button
         onClick={handleClick}
-        class='btn btn-secondary dropdown-toggle'
+        className='btn btn-secondary dropdown-toggle'
         type='button'
         id='dropdownMenuButton'
         data-toggle='dropdown'
@@ -37,7 +37,7 @@ const Dropdown = ({ title, children }) => {
       </button>
       {show ? (
         <div
-          class='dropdown-menu show'
+          className='dropdown-menu show'
           aria-labelledby='dropdownMenuButton'
           style={{
             position: 'absolute',
@@ -51,7 +51,7 @@ const Dropdown = ({ title, children }) => {
           {children}
         </div>
       ) : (
-        <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
+        <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
           {children}
         </div>
       )}
