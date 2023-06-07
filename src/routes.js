@@ -13,9 +13,9 @@ import Charts from "./pages/Charts/Charts";
 const Routes = () => (
   <BrowserRouter>
     <BrowserRoutes>
-      <Route exact path='/' element={<Navigate to='dashboard' />} />
+      {/* <Route exact path='/' element={<Navigate to='dashboard' />} /> */}
       <Route path='/signin' element={<SignIn />} />
-      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/' element={<Dashboard />} />
       <Route path='/signup' element={<SignUp />} />
       <Route path='/cards' element={<Cards />} />
       <Route path='/charts' element={<Charts />} />
