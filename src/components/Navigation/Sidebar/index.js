@@ -87,7 +87,7 @@ const Sidebar = ({clickMenuOpen, toggled}) => {
           Animations
         </a>
         <a className='collapse-item' href='utilities-other.html'>
-          Other
+          Porra
         </a>
       </CollapseNavLink>
 
